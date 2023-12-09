@@ -49,6 +49,8 @@ public class UserEntity {
     @Pattern(regexp = "^[a-fA-F0-9]+$", message = "Password must be hexadecimal")
     private String password = "e2cac5c5f7e52ab03441bb70e89726ddbd1f6e5b683dde05fb65e0720290179e";        
     private Boolean role = false;
+    private Double latitude;
+    private Double longitude;
 
     @OneToMany(mappedBy = "user", fetch = jakarta.persistence.FetchType.LAZY)
     private List<ThreadEntity> threads;
@@ -161,4 +163,19 @@ public class UserEntity {
         return replies.size();
     }
 
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 }
